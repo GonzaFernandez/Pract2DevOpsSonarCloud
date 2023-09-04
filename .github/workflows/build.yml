@@ -38,10 +38,10 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: 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  # Needed to get PR information, if any
+          GITHUB_TOKEN: GonzaFernandez  # Needed to get PR information, if any
           SONAR_TOKEN: shelbygt500
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"ElLargo_testsb" /o:"ellargo" /d:sonar.login="shelbygt500" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Pract2DevOpsSonarCloud" /o:"Pract2DevOpsSonarCloud" /d:sonar.login="shelbygt500" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build .\src
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="shelbygt500"
